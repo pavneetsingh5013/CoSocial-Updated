@@ -7,6 +7,7 @@ import VideoPin from "../Components/VideoPin"
 import Feed from "../Components/Feed"
 import Search from "../Components/Search"
 import {categories} from '../data'
+import Login from './Login'
 import { useEffect, useState } from "react";
 
 import {Route,Routes,useNavigate} from 'react-router-dom'
@@ -32,6 +33,7 @@ const Home = ({user}) => {
     px="4"
     >
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Feed />}   />
         <Route path="/category/:categoryId" element={<Feed />}   />
         <Route path="/create" element={<Create />}   />
