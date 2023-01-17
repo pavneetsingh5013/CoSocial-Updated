@@ -69,10 +69,12 @@ const Navbar = ({user}) => {
    <Link to={`/userDetail/${user.uid}`}>
 <MenuItem> My Account</MenuItem>
     </Link>
-    <Link >
-<MenuItem onClick={()=>{localStorage.clear();
-                        navigate("/login",{replace:true});
-                        }}>Logout</MenuItem>
+    <Link to={"/login"} >
+<MenuItem  onClick={() => {
+                localStorage.clear();
+                // navigate("/login", { replace: true });
+               
+              }}>Logout</MenuItem>
     </Link>
     
   </MenuList>

@@ -22,22 +22,37 @@ const Login = () => {
   const navigate=useNavigate();
   const firebaseDb=getFirestore(firebaseApp);
 
-    const login=async()=>{
-    const {user}=await signInWithPopup(auth,provider);
-      console.log(user);
-      const{refreshToken , providerData}=user;
-      console.log(refreshToken);
-      console.log(providerData);
-      localStorage.setItem("user",JSON.stringify(providerData));
-      localStorage.setItem("accessToken",JSON.stringify(refreshToken));
-      await setDoc(
-        doc(firebaseDb, "users",providerData[0].uid),
-        providerData[0]
-        );
-      navigate("/",{replace:true});
+    // const login=async()=>{
+    // const {user}=await signInWithPopup(auth,provider);
+    //   console.log(user);
+    //   const{refreshToken , providerData}=user;
+    //   console.log(refreshToken);
+    //   console.log(providerData);
+    //   localStorage.setItem("user",JSON.stringify(providerData));
+    //   localStorage.setItem("accessToken",JSON.stringify(refreshToken));
+    //   await setDoc(
+    //     doc(firebaseDb, "users",providerData[0].uid),
+    //     providerData[0]
+    //     );
+    //   navigate("/",{replace:true});
  
         
-    };
+    // };
+    
+  const login = async () => {
+    const { user } = await signInWithPopup(auth, provider);
+    const { refreshToken, providerData } = user;
+
+    localStorage.setItem("user", JSON.stringify(providerData));
+    localStorage.setItem("accessToken", JSON.stringify(refreshToken));
+
+    await setDoc(
+      doc(firebaseDb, "users", providerData[0].uid),
+      providerData[0]
+    );
+
+    navigate("/", { replace: true });
+  };
 
   return (
     <Flex marginTop={20}  bg='#C6F6D5'>
@@ -57,9 +72,7 @@ const Login = () => {
     <Stack mt='6' spacing='3'>
       <Heading size='md'>The New Way To Share</Heading>
       <Text>
-        This sofa is perfect for modern tropical spaces, baroque inspired
-        spaces, earthy toned spaces and for people who love a chic design with a
-        sprinkle of vintage design.
+        CoSocial is the Perfect Platform for everyone ranging from content creators to consumers!
       </Text>
      
     </Stack>

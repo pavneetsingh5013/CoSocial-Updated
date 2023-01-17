@@ -2,6 +2,7 @@
   "name": "videoapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost:3000/login",
   "dependencies": {
     "@chakra-ui/react": "^2.4.2",
     "@emotion/react": "^11.10.5",
@@ -19,7 +20,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-player": "^2.11.0",
     "react-router-dom": "^6.4.4",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "screenfull": "^6.0.2",
     "web-vitals": "^2.1.4"
   },

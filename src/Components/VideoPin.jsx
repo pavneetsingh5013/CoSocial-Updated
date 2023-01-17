@@ -411,6 +411,7 @@ const VideoPin = () => {
 
                 <a
                   href={videoInfo.videoUrl}
+                  target="_blank"
                   // download
                   // onClick={(e) => e.stopPropagation()}
                 >
